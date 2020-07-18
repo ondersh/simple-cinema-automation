@@ -16,8 +16,15 @@ public abstract class AbstractService<E> {
         return dao.save(entity);
     }
 
+    public E findEntityById(int id){
+        return dao.findById(id);
+    }
+
     public List<E> getAll(){
         return dao.getAll();
     }
 
+    public GenericDAO<E> getDao() {
+        return dao;
+    }
 }

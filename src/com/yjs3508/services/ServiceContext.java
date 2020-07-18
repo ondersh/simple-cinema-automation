@@ -5,6 +5,8 @@ public class ServiceContext {
     private static ActorService actorService;
     private static DirectorService directorService;
     private static MovieService movieService;
+    private static SeanceService seanceService;
+    private static TicketService ticketService;
 
 
     public static ActorService getActorService() {
@@ -32,5 +34,23 @@ public class ServiceContext {
             }
         }
         return movieService;
+    }
+
+    public static SeanceService getSeanceService() {
+        synchronized (ServiceContext.class) {
+            if (seanceService == null) {
+                seanceService = new SeanceService();
+            }
+        }
+        return seanceService;
+    }
+
+    public static TicketService getTicketService() {
+        synchronized (ServiceContext.class) {
+            if (ticketService == null) {
+                ticketService = new TicketService();
+            }
+        }
+        return ticketService;
     }
 }

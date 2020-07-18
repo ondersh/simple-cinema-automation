@@ -3,6 +3,7 @@ package com.yjs3508.dal;
 import com.yjs3508.framework.data.ConnectionTask;
 import com.yjs3508.framework.ApplicationContext;
 import com.yjs3508.model.domain.Movie;
+import com.yjs3508.model.domain.Theatre;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,8 +14,14 @@ import java.util.List;
 
 public class MovieDAOImpl extends AbstractDAO<Movie> implements MovieDAO {
 
-    private static final String INSERT_MOVIE_SQL = "INSERT INTO t_movies VALUES (?,?)";
+    private static final String INSERT_MOVIE_SQL = "INSERT INTO cinema.t_movies VALUES (?,?)";
     private static final String SELECT_ALL_SQL = "SELECT * FROM cinema.t_movies";
+
+    private TheatreDAOImpl theatreDAO;
+
+    public MovieDAOImpl(){
+        theatreDAO = new TheatreDAOImpl();
+    }
 
 
     @Override
@@ -47,8 +54,10 @@ public class MovieDAOImpl extends AbstractDAO<Movie> implements MovieDAO {
                 ResultSet movieResultSet = statement.executeQuery(SELECT_ALL_SQL);
                 while(movieResultSet.next()){
                     Movie movie = new Movie();
+                    movie.setId(movieResultSet.getInt("movie_id"));
                     movie.setMovieName(movieResultSet.getString("movie_name"));
                     movie.setType(movieResultSet.getString("movie_type"));
+                    movie.setTheatre(theatreDAO.findById(movieResultSet.getInt("theatre_id")));
                     movieList.add(movie);
                 }
                 return movieList;

@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 abstract class DatasourceUtils {
 
+    private static Connection connection;
 
     /**
      *
@@ -24,7 +25,10 @@ abstract class DatasourceUtils {
 
     public static Connection getConnection(Datasource datasource) throws JDBCConnectionException {
         try{
-            return datasource.getConnection();
+            if(connection == null){
+                connection = datasource.getConnection();
+            }
+            return connection;
         }catch (SQLException exception){
             throw new JDBCConnectionException("Database Connection Fail");
         }

@@ -33,8 +33,13 @@ public class Theatre extends AbstractEntity {
         return theatreName;
     }
 
+
     @Override
-    public int getId() {
-        return 0;
+    public String toString() {
+        return "Theatre{" +
+                "theatreName='" + theatreName + '\'' +
+                ", capacity=" + capacity +
+                ", movie=" + movie +
+                '}';
     }
 }

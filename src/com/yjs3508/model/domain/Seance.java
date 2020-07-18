@@ -35,8 +35,9 @@ public class Seance extends AbstractEntity {
         return description;
     }
 
+
     @Override
-    public int getId() {
-        return 0;
+    public String toString() {
+        return description;
     }
 }

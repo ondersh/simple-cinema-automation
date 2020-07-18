@@ -1,5 +1,9 @@
 package com.yjs3508.framework.data;
 
+import com.yjs3508.framework.exceptions.BadDatabaseCredentialsException;
+import org.postgresql.ds.PGSimpleDataSource;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -28,6 +32,7 @@ public class DefaultDatasourceImpl implements Datasource {
 
     @Override
     public Connection getConnection() throws SQLException {
+        if(datasourceUrl == null || datasourceUsername == null || datasourcePassword == null) throw new BadDatabaseCredentialsException();
         Connection connection = DriverManager.getConnection(datasourceUrl,datasourceUsername,datasourcePassword);
         System.out.println("Connected");
        return  connection;

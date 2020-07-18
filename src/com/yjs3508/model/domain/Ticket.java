@@ -44,7 +44,12 @@ public class Ticket extends AbstractEntity {
     }
 
     @Override
-    public int getId() {
-        return 0;
+    public String toString() {
+        return "Ticket{" +
+                "seatNumber=" + seatNumber +
+                ", ticketDate=" + ticketDate +
+                ", seance=" + seance +
+                ", theatre=" + theatre +
+                '}';
     }
 }

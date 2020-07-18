@@ -9,6 +9,7 @@ public class Movie  extends AbstractEntity {
     private String movieName;
     private String type;
     private List<Actor> actors;
+    private Theatre theatre;
 
 
     public void setMovieName(String movieName) {
@@ -28,8 +29,11 @@ public class Movie  extends AbstractEntity {
         return type;
     }
 
-    @Override
-    public int getId() {
-        return 0;
+    public Theatre getTheatre() {
+        return theatre;
     }
+    public void setTheatre(Theatre theatre) {
+        this.theatre = theatre;
+    }
+
 }

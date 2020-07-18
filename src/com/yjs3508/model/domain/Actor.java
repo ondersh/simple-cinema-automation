@@ -23,8 +23,4 @@ public class Actor extends AbstractEntity {
         return firstName;
     }
 
-    @Override
-    public int getId() {
-        return 0;
-    }
 }

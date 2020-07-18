@@ -24,8 +24,4 @@ public class TicketPrice extends AbstractEntity {
         return price;
     }
 
-    @Override
-    public int getId() {
-        return 0;
-    }
 }

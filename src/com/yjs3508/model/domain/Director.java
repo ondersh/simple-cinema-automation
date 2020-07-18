@@ -24,8 +24,4 @@ public class Director extends AbstractEntity {
         return lastName;
     }
 
-    @Override
-    public int getId() {
-        return 0;
-    }
 }

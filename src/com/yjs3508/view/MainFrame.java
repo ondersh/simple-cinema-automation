@@ -84,7 +84,6 @@ public class MainFrame extends JFrame {
 
     public void addGetTicketButtonListener(ActionListener listener){
         button.addActionListener(listener);
-
     }
 
     public void addListSelectionListener(ListSelectionListener listener){
@@ -97,5 +96,4 @@ public class MainFrame extends JFrame {
         txtMovieType.setText(movie.getType());
         // TODO
     }
-
 }

@@ -40,6 +40,7 @@ public class DAOTemplate implements DatabaseOperations {
     @Override
     public <T> T execute(ConnectionTask<T> task) throws DatabaseAccessException {
         Connection connection = DatasourceUtils.getConnection(getDatasource());
+
         try{
             return task.doInConnection(connection);
         }catch (SQLException exception){
